@@ -1,4 +1,4 @@
-# **Customer Churn Analytics: A Non-Parametric Ensemble Study**
+# **Customer Churn Analytics: A Classification ML Non-Parametric Ensemble Study**
 
 ## **📌 Executive Summary**
 
@@ -58,6 +58,21 @@ I utilized a 70/30 train-test split to validate the generalizability of the algo
 ---
 
 ## **💡 Business Insights (The "Why")**
+### **Feature Importance Ranking**
+While ensembles are often considered "black box" models, the **Mean Decrease Gini** metric allows us to rank features based on how much they contribute to the purity of the decision trees.
+
+| Rank | Variable | Importance (Gini) | Business Interpretation |
+| :--- | :--- | :--- | :--- |
+| 1 | **Tenure** | 261.55 | Long-term loyalty is the strongest deterrent to churn. |
+| 2 | **Total Charges** | 259.62 | Cumulative spend indicates deep integration with services. |
+| 3 | **Monthly Charges** | 220.69 | High monthly costs are a primary driver for price-shopping. |
+| 4 | **Fiber Optic** | 70.62 | Internet type impacts churn; Fiber users may have different expectations. |
+| 5 | **Electronic Check** | 64.78 | Payment method friction correlates with higher attrition rates. |
+| 6 | **Two-Year Contract** | 60.88 | Long-term commitments significantly stabilize the user base. |
+| 7 | **Paperless Billing** | 41.66 | Digital-first customers exhibit different churn behaviors. |
+| 8 | **Tech Support** | 40.90 | Access to support is a key factor in service satisfaction. |
+| 9 | **Online Security** | 40.83 | Security features act as an "anchor" for customer retention. |
+| 10 | **One-Year Contract** | 39.73 | Mid-term contracts provide a moderate buffer against churn. |
 
 Using the **Random Forest Mean Decrease Gini** analysis, I identified the top drivers of churn. This "opens the black box" of the ensemble model to provide actionable advice:
 
@@ -70,10 +85,12 @@ Using the **Random Forest Mean Decrease Gini** analysis, I identified the top dr
 ## **📊 Visual Analytics**
 
 ### **1. Model Performance (ROC Curve Comparison)**
+![ROC Comparison](assets/churn_roc_comparison.png)
 
 *Figure 1: ROC curve illustrating that Random Forest and XGBoost provide superior classification boundaries.*
 
 ### **2. Feature Importance Plot**
+![Feature Importance](assets/churn_importance_plot.png)
 
 *Figure 2: Identifying which customer behaviors most strongly lead to a "Yes" for churn.*
 
